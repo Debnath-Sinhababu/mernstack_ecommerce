@@ -8,7 +8,7 @@ import crypto from 'crypto'
 import cloudinary from 'cloudinary'
 import multipart from "connect-multiparty";
 import multer from "multer";
-import  v4   from 'uuid';
+import {v4} from 'uuid';
 export const RegisterUser=Asyncerror(async(req,res)=>{
           console.log(req.body)
     const {name,email,password}=req.body
