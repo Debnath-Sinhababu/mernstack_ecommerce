@@ -78,12 +78,13 @@ export const LoginUser= Asyncerror(async(req,res,next)=>{
 
 })
 export const Logout=Asyncerror(async(req,res)=>{
-   
-     res.cookie('token',null,{
+  const { token } = req.cookies;
+    console.log(token)
+     res.cookie('token','',{
         expires: new Date(
             Date.now()
-          ),
-          httpOnly:true
+          )
+        
      })
      res.status(201).json({
         success:true,
