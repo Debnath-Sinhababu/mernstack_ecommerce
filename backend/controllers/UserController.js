@@ -80,16 +80,26 @@ export const LoginUser= Asyncerror(async(req,res,next)=>{
 export const Logout=Asyncerror(async(req,res)=>{
   const { token } = req.cookies;
     console.log(token)
-     res.cookie('token','',{
-        expires: new Date(
-            Date.now()
-          )
+
+    //  res.cookie('token','',{
+    //     expires: new Date(
+    //         Date.now()
+    //       )
         
-     })
-     res.status(201).json({
+    //  })
+   
+    res.clearCookie('token',{
+      secure:false,
+      httpOnly:false
+
+    })
+   
+      res.status(201).json({
         success:true,
         message:"Logged out successfully"
      })
+   
+    
     
 })
 export const forgotPassword=Asyncerror(async(req,res)=>{
