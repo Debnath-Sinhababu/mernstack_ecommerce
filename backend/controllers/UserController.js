@@ -78,25 +78,25 @@ export const LoginUser= Asyncerror(async(req,res,next)=>{
 
 })
 export const Logout=Asyncerror(async(req,res)=>{
-  const { token } = req.cookies;
-    console.log(token)
+ 
 
-    //  res.cookie('token','',{
-    //     expires: new Date(
-    //         Date.now()
-    //       )
-        
-    //  })
+     res.cookie('token','',{
+        expires: new Date(
+            Date.now()
+          ),
+          secure:true,
+          httpOnly:false,
+          sameSite: 'none',
+         
+     })
    
-    res.clearCookie('token',{
-      secure:true,
-      httpOnly:false
-
-    })
+     const { token } = req.cookies;
+    console.log(token)
    
       res.status(201).json({
         success:true,
-        message:"Logged out successfully"
+        message:"Logged out successfully",
+        token
      })
    
     
