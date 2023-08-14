@@ -89,7 +89,7 @@ export const Logout=Asyncerror(async(req,res)=>{
     //  })
    
     res.clearCookie('token',{
-      secure:false,
+      secure:true,
       httpOnly:false
 
     })
